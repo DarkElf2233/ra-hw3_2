@@ -3,15 +3,13 @@ import './App.css';
 
 import { Listing } from './components/Listing';
 
-import dataInJson from './db/data.json'
+const data = require('./db/data.json')
 
 function App() {
-  const data = JSON.parse(dataInJson)
-
   return (
     <div className="wrapper">
-      <Listing 
-        items={}
+      <Listing
+        items={data}
       />
     </div>
   );

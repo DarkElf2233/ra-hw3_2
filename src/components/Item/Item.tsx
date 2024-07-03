@@ -1,8 +1,12 @@
 import React from 'react'
+import './item.css'
+
 import { ItemProps } from '../../models/item'
 
 export const Item = (props: ItemProps) => {
-  const { item }= props
+  const { item } = props
+
+  if (item['state'] === 'removed') return
 
   let currency = item.currency_code
   if (item.currency_code === 'USD') {
@@ -30,7 +34,7 @@ export const Item = (props: ItemProps) => {
           ? `${item.title} ...`
           : item.title
         }</p>
-        <p className="item-price">{item.currency_code === 'USD' || 'EUR'
+        <p className="item-price">{item.currency_code === 'USD' || item.currency_code === 'EUR'
           ? `${currency}${item.price}`
           : `${item.price} ${currency}`
         }</p>

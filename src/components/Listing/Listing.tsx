@@ -1,28 +1,20 @@
-import React, { Component } from 'react'
+import React from 'react'
 import './listing.css'
 
-import { ListingProps } from '../../models'
-import { ItemProps } from '../../models'
+import { ItemInfo, ListingProps } from '../../models'
 
 import { Item } from '../Item'
 
-export class Listing extends Component {
-  constructor(props: ListingProps) {
-    super(props)
+export const Listing = (props: ListingProps) => {
+  const { items } = props
 
-    this.items = props.items
-    console.log(props.items)
-  }
-
-  render() {
-    return (
-      <div className="item-list">
-        {this.items.map((item: ItemProps) => (
-          <Item 
-            item={item}
-          />
-        ))}
-      </div>
-    )
-  }
+  return (
+    <div className="item-list">
+      {items.map((item: ItemInfo) => (
+        <Item
+          item={item}
+        />
+      ))}
+    </div>
+  )
 }
