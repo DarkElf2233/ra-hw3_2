@@ -6,7 +6,7 @@ import { ItemProps } from '../../models/item'
 export const Item = (props: ItemProps) => {
   const { item } = props
 
-  if (item['state'] === 'removed') return
+  if (item['state'] === 'removed') return (<></>)
 
   let currency = item.currency_code
   if (item.currency_code === 'USD') {
